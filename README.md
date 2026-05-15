@@ -1,27 +1,22 @@
 # motion-detection-image-filtering
 
-this was my first project for eece 5639 (computer vision) at northeastern
+motion detection from a fixed-camera image sequence
 
-the goal was to detect motion in a fixed-camera image sequence by looking at temporal grayscale changes frame to frame
+this was my first computer vision project
 
-i compared:
+i tried a few different ways of doing temporal differencing / filtering to detect moving pixels, then thresholded the magnitude to get binary motion masks
 
-- simple central-difference temporal derivatives
-- derivative-of-gaussian temporal filters at different temporal scales
-- spatial smoothing before differencing using box filters and gaussian blur
-- an adaptive threshold based on the per-frame std of the temporal-gradient magnitudes
+i also compared what happens if you smooth spatially before doing the temporal derivative
 
-the dataset used here was the redchair sequence
+main stuff in here:
 
-the repo includes:
+- simple central-difference temporal derivative
+- derivative-of-gaussian in time
+- box / gaussian smoothing in space
+- adaptive thresholding from the temporal-gradient magnitudes
 
-- `project1.py` for the main experiments
-- `make_comparison_grids.py` for stitching method outputs into comparison grids
-- `project1_report.pdf` for the submitted writeup
-- a couple sample output images from frame 63 / the report
+the dataset was the redchair sequence
 
-main takeaway:
+the best-looking result ended up coming more from stronger spatial gaussian smoothing than from the fancier temporal filter
 
-spatial smoothing mattered more than fancy temporal filtering on this dataset. gaussian smoothing gave the cleanest motion masks, and the best-looking results in the report came from stronger spatial blur.
-
-if you want the exact project framing/results, the pdf has the full writeup.
+there are a couple sample output images here and the full submitted pdf writeup is `project1_report.pdf`
