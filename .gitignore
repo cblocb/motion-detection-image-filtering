@@ -1,2 +1,7 @@
 __pycache__/
 .ipynb_checkpoints/
+
+RedChair/
+cb_EECE_5639_proj_1_out/
+out_student_baseline/
+*.extracted.txt
